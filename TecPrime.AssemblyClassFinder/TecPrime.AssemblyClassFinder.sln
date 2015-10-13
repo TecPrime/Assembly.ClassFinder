@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TecPrime.AssemblyClassFinder.Core", "TecPrime.AssemblyClassFinder.Core\TecPrime.AssemblyClassFinder.Core.csproj", "{29BECB5C-417C-4597-8807-BA9808ADDACC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TecPrime.AssemblyClassFinder.Test", "TecPrime.AssemblyClassFinder.Test\TecPrime.AssemblyClassFinder.Test.csproj", "{39AAABE5-6D36-42C5-B940-FFF4F160D5DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29BECB5C-417C-4597-8807-BA9808ADDACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29BECB5C-417C-4597-8807-BA9808ADDACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29BECB5C-417C-4597-8807-BA9808ADDACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29BECB5C-417C-4597-8807-BA9808ADDACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39AAABE5-6D36-42C5-B940-FFF4F160D5DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39AAABE5-6D36-42C5-B940-FFF4F160D5DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39AAABE5-6D36-42C5-B940-FFF4F160D5DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39AAABE5-6D36-42C5-B940-FFF4F160D5DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
