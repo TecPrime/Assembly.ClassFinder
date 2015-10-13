@@ -2,19 +2,20 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>AssemblyClassFinder</id>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
         <title>AssemblyClassFinder</title>
-        <authors>TecPrime Solutions</authors>
-        <owners>TecPrime Solutions</owners>
+        <authors>TecPrime Solutions - http://tecprime.solutions</authors>
+        <owners>TecPrime Solutions - http://tecprime.solutions</owners>
         <licenseUrl>https://github.com/TecPrime/AssemblyClassFinder/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/TecPrime/AssemblyClassFinder</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>A class finder that search in all libraries for determined classes or interfaces</description>
         <summary>A class finder that search in all libraries for determined classes or interfaces</summary>
-        <copyright>TecPrime Solutions</copyright>
-        <tags>class finder assembly type load loader</tags>
+        <releaseNotes>Added ability to set restriction patterns and standards that should be ignored in AppTypeFinder class using the app / web.config. Creation of StringMatch class, which matches pattern with the informed value using regular expression. That way you can optimize the search for classes / interfaces only in some assemblies that matches within the pattern.</releaseNotes>
+        <copyright>TecPrime Solutions - http://tecprime.solutions</copyright>
+        <tags>class finder assembly type load loader TecPrime</tags>
     </metadata>
     <files>
-        <file src="..\TecPrime.AssemblyClassFinder\TecPrime.AssemblyClassFinder.Core\obj\Release\TecPrime.AssemblyClassFinder.Core.dll" target="lib\TecPrime.AssemblyClassFinder.Core.dll" />
+        <file src="lib\TecPrime.AssemblyClassFinder.Core.dll" target="lib\TecPrime.AssemblyClassFinder.Core.dll" />
     </files>
 </package>
