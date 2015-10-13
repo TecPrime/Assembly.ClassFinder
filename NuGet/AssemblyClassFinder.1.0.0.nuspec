@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>AssemblyClassFinder</id>
+        <version>1.0.0</version>
+        <title>AssemblyClassFinder</title>
+        <authors>TecPrime Solutions</authors>
+        <owners>TecPrime Solutions</owners>
+        <licenseUrl>https://github.com/TecPrime/AssemblyClassFinder/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/TecPrime/AssemblyClassFinder</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A class finder that search in all libraries for determined classes or interfaces</description>
+        <summary>A class finder that search in all libraries for determined classes or interfaces</summary>
+        <copyright>TecPrime Solutions</copyright>
+        <tags>class finder assembly type load loader</tags>
+    </metadata>
+    <files>
+        <file src="..\TecPrime.AssemblyClassFinder\TecPrime.AssemblyClassFinder.Core\obj\Release\TecPrime.AssemblyClassFinder.Core.dll" target="lib\TecPrime.AssemblyClassFinder.Core.dll" />
+    </files>
+</package>
