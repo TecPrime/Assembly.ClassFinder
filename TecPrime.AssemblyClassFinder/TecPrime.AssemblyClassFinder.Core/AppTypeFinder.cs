@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Reflection;
 
@@ -99,14 +100,25 @@ namespace TecPrime.AssemblyClassFinder.Core
             return assemblies;
         }
 
+        private string GetConfigParameter(string paramName)
+        {
+            if (ConfigurationManager.AppSettings[paramName] != null)
+                return ConfigurationManager.AppSettings[paramName].ToString();
+            return string.Empty;
+        }
+
         private void AddAssemblies(List<string> addedAssemblyNames, List<Assembly> assemblies, IAssemblyLoader loader)
         {
             foreach (Assembly assembly in loader.GetAssemblies())
             {
-                if (!addedAssemblyNames.Contains(assembly.FullName))
+                StringMatch match = new StringMatch(GetConfigParameter("RestrictToPattern"), GetConfigParameter("SkipPattern"));
+                if (match.Matches(assembly.FullName))
                 {
-                    assemblies.Add(assembly);
-                    addedAssemblyNames.Add(assembly.FullName);
+                    if (!addedAssemblyNames.Contains(assembly.FullName))
+                    {
+                        assemblies.Add(assembly);
+                        addedAssemblyNames.Add(assembly.FullName);
+                    }
                 }
             }
         }
