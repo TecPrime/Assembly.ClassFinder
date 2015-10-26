@@ -11,6 +11,19 @@ namespace TecPrime.AssemblyClassFinder.Core
         private bool ignoreReflectionErrors = true;
         private IList<IAssemblyLoader> listLoader;
 
+        public string RestrictToPattern { get; set; }
+        public string SkipPattern { get; set; }
+
+        private string GetRestrictToPattern()
+        {
+            return RestrictToPattern + "|" + GetConfigParameter("RestrictToPattern");
+        }
+
+        private string GetSkipPattern()
+        {
+            return SkipPattern + "|" + GetConfigParameter("SkipPattern");
+        }
+
         public AppTypeFinder(IList<IAssemblyLoader> loaders)
         {
             this.listLoader = loaders;
@@ -111,7 +124,7 @@ namespace TecPrime.AssemblyClassFinder.Core
         {
             foreach (Assembly assembly in loader.GetAssemblies())
             {
-                StringMatch match = new StringMatch(GetConfigParameter("RestrictToPattern"), GetConfigParameter("SkipPattern"));
+                StringMatch match = new StringMatch(RestrictToPattern, SkipPattern);
                 if (match.Matches(assembly.FullName))
                 {
                     if (!addedAssemblyNames.Contains(assembly.FullName))

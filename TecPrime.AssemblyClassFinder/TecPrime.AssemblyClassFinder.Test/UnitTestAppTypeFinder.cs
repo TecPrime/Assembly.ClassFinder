@@ -8,14 +8,63 @@ namespace TecPrime.AssemblyClassFinder.Test
     public class UnitTestAppTypeFinder
     {
         [TestMethod]
+        public void TestClassFindConfigPattern()
+        {
+            ITypeFinder typeFinder = new AppTypeFinder(new IAssemblyLoader[] { new AppDomainLoader() });
+            var types = typeFinder.FindClassesOfType<UnitTestAppTypeFinder>();
+            int count = 0;
+            foreach (var type in types)
+            {
+                Assert.AreEqual(type.FullName, "TecPrime.AssemblyClassFinder.Test.UnitTestAppTypeFinder");
+                count++;
+            }
+            Assert.AreEqual(count, 1);
+        }
+
+        [TestMethod]
         public void TestClassFind()
         {
             ITypeFinder typeFinder = new AppTypeFinder(new IAssemblyLoader[] { new AppDomainLoader() });
             var types = typeFinder.FindClassesOfType<UnitTestAppTypeFinder>();
-            foreach(var type in types)
+            typeFinder.SkipPattern = "^WrongPattern";
+            typeFinder.RestrictToPattern = "^TecPrime";
+            int count = 0;
+            foreach (var type in types)
             {
                 Assert.AreEqual(type.FullName, "TecPrime.AssemblyClassFinder.Test.UnitTestAppTypeFinder");
+                count++;
             }
+            Assert.AreEqual(count, 1);
+        }
+
+        [TestMethod]
+        public void TestClassFindRestrictFail()
+        {
+            ITypeFinder typeFinder = new AppTypeFinder(new IAssemblyLoader[] { new AppDomainLoader() });
+            typeFinder.SkipPattern = "";
+            typeFinder.RestrictToPattern = "^WrongPattern";
+            var types = typeFinder.FindClassesOfType<UnitTestAppTypeFinder>();
+            int count = 0;
+            foreach (var type in types)
+            {
+                count++;
+            }
+            Assert.AreEqual(count, 0);
+        }
+
+        [TestMethod]
+        public void TestClassFindSkipeFail()
+        {
+            ITypeFinder typeFinder = new AppTypeFinder(new IAssemblyLoader[] { new AppDomainLoader() });
+            typeFinder.SkipPattern = "^TecPrime";
+            typeFinder.RestrictToPattern = "";
+            var types = typeFinder.FindClassesOfType<UnitTestAppTypeFinder>();
+            int count = 0;
+            foreach (var type in types)
+            {
+                count++;
+            }
+            Assert.AreEqual(count, 0);
         }
 
         [TestMethod]
